@@ -1,0 +1,16 @@
+`include "disciplines.vams"  // Include standard electrical discipline definitions
+
+// Custom capacitor module
+module my_capacitor(p, n);  
+    inout p, n;              // Define capacitor terminals (p = positive, n = negative)
+    electrical p, n;         // Declare these as electrical nodes
+
+    // Capacitance value as a parameter (default = 1 µF)
+    parameter real C = 1u;
+
+    analog begin
+        // Define the current through the capacitor as: I = C * dV/dt
+        // 'ddt' calculates the time derivative of voltage
+        I(p, n) <+ C * ddt(V(p, n));
+    end
+endmodule
