@@ -1,0 +1,16 @@
+`include "disciplines.vams"  // Include standard definitions for electrical disciplines
+
+// Module definition for a custom resistor model
+module my_resistor(p, n); 
+    inout p, n;              // Define the two terminals of the resistor
+    electrical p, n;         // Declare the terminals as electrical (analog signals)
+
+    // Parameter: resistance value in Ohms (default is 1k Ohm)
+    parameter real R = 1k;
+
+    analog begin
+        // Ohm's Law: I = V / R
+        // The current through the resistor is the voltage across it divided by the resistance
+        I(p, n) <+ V(p, n) / R;
+    end
+endmodule
