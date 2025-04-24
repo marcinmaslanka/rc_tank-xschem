@@ -30,9 +30,10 @@ Create symbols for both res.va and cap.va.
 
 Set their properties similar to the following:
 
-![Screenshot From 2025-04-24 13-56-26](https://github.com/user-attachments/assets/25a0cf1c-a7fb-4a2d-9d9c-cb86a8e25ee0)
 
+![Screenshot From 2025-04-24 14-18-29](https://github.com/user-attachments/assets/d5edcaff-e3dc-4373-936a-f8b05a508fb7)
 
+`
 Create a new schematic file: rc_tank.sch.
 
 Place the following components in the schematic:
@@ -48,6 +49,7 @@ GND
 Net labels: in, out, and vss
 
 Wire the components like this:
+`
 
 ```css
 Vin → [resistor] → out → [capacitor] → GND
@@ -83,22 +85,22 @@ Then open the resulting .raw file in GTKWave or the waveform viewer.
 The output voltage V(out) will show typical low-pass behavior, smoothing the sharp edges of the input pulse. The shape depends on the RC time constant.
 
 ## 🧠 Concepts Covered
-RC low-pass filter behavior
+- RC low-pass filter behavior
 
-Use of custom Verilog-A models
+- Use of custom Verilog-A models
 
-Time-domain simulation with .tran
+- Time-domain simulation with .tran
 
-Netlist-based analog simulation flow
+- Netlist-based analog simulation flow
 
 ## ✅ Requirements
-Xschem
+  - Xschem
 
-Ngspice
+  - Ngspice
 
-GTKWave
+  - GTKWave
 
-openvaf from IIC-OSIC-TOOLS
+  - openvaf from IIC-OSIC-TOOLS
 
 ## 🗂️ Project Structure (Example)
 ```bash
